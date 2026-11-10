@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ps" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pashto Tech Admin</title>
+<style>
+  :root {
+    --bg: #050B2E; --panel: #0B1445; --field: #111B5C; --line: #2B3A9E;
+    --teal: #00B8A9; --text: #ffffff; --sub: #9fb0e0; --red: #ff5d5d;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: Tahoma, "Noto Naskh Arabic", system-ui, sans-serif;
+    font-size: 17px; line-height: 1.7; padding: 16px; max-width: 640px; margin-inline: auto;
+  }
+  h1 { font-size: 22px; margin: 4px 0 16px; text-align: center; }
+  h2 { font-size: 18px; margin: 0 0 12px; color: var(--teal); }
+  .card {
+    background: var(--panel); border: 1.4px solid var(--line);
+    border-radius: 18px; padding: 16px; margin-bottom: 16px;
+  }
+  label { display: block; margin: 10px 0 4px; color: var(--sub); font-size: 15px; }
+  input, select, textarea {
+    width: 100%; background: var(--field); color: var(--text);
+    border: 1.4px solid var(--line); border-radius: 12px;
+    padding: 12px; font-size: 17px; font-family: inherit;
+  }
+  textarea { min-height: 180px; resize: vertical; }
+  input[type=file] { padding: 10px; }
+  button {
+    width: 100%; margin-top: 14px; padding: 14px; border: 0; border-radius: 14px;
+    background: var(--teal); color: #fff; font-size: 18px; font-weight: bold; font-family: inherit;
+  }
+  button.small {
+    width: auto; margin: 0; padding: 6px 14px; font-size: 14px; background: var(--red);
+  }
+  button.ghost { background: transparent; border: 1.4px solid var(--line); color: var(--sub); }
+  button:disabled { opacity: .5; }
+  #status {
+    position: sticky; bottom: 8px; padding: 12px; border-radius: 12px;
+    background: #123; border: 1.4px solid var(--line); display: none; text-align: center;
+  }
+  #status.ok { border-color: var(--teal); color: var(--teal); }
+  #status.err { border-color: var(--red); color: var(--red); }
+  .row {
+    display: flex; justify-content: space-between; align-items: center; gap: 10px;
+    padding: 10px 0; border-bottom: 1px solid var(--line);
+  }
+  .row:last-child { border-bottom: 0; }
+  .row span { flex: 1; word-break: break-word; }
+  .tag { font-size: 12px; color: var(--sub); }
+  .hide { display: none; }
+  img.preview { max-width: 100%; border-radius: 12px; margin-top: 10px; }
+  .hint { font-size: 13px; color: var(--sub); margin-top: 6px; }
+</style>
+</head>
+<body>
+
+<h1>⚙️ Pashto Tech Admin</h1>
+
+<!-- ───── ترتیبات ───── -->
+<div class="card">
+  <h2>ترتیبات</h2>
+  <label>GitHub Token</label>
+  <input id="token" type="password" placeholder="github_pat_..." autocomplete="off" dir="ltr">
+  <label>GitHub username</label>
+  <input id="owner" value="rokhanirfan95-sudo" dir="ltr">
+  <label>Repo</label>
+  <input id="repo" value="pashto-tech-content" dir="ltr">
+  <button class="ghost" id="saveSettings">خوندي کړه</button>
+  <div class="hint">Token یوازې ستاسو په همدې موبایل کې خوندي کیږي.</div>
+</div>
+
+<!-- ───── نوې منځپانګه ───── -->
+<div class="card">
+  <h2>نوې منځپانګه اضافه کړئ</h2>
+
+  <label>برخه</label>
+  <select id="cat"></select>
+
+  <label>ډول</label>
+  <select id="type">
+    <option value="text">📝 لیکنه</option>
+    <option value="image">🖼️ عکس</option>
+    <option value="video">🎬 ویډیو (لینک)</option>
+  </select>
+
+  <label>سرلیک</label>
+  <input id="title" placeholder="د لیکنې سرلیک">
+
+  <div id="imgBox" class="hide">
+    <label>عکس وټاکئ</label>
+    <input id="file" type="file" accept="image/*">
+    <img id="preview" class="preview hide" alt="">
+  </div>
+
+  <div id="urlBox" class="hide">
+    <label>د ویډیو لینک (YouTube وغیره)</label>
+    <input id="url" dir="ltr" placeholder="https://...">
+  </div>
+
+  <div id="bodyBox">
+    <label id="bodyLabel">متن</label>
+    <textarea id="body" placeholder="دلته ولیکئ..."></textarea>
+  </div>
+
+  <button id="publish">📤 اپلوډ کړه</button>
+</div>
+
+<!-- ───── موجوده منځپانګه ───── -->
+<div class="card">
+  <h2>په دې برخه کې موجود توکي</h2>
+  <button class="ghost" id="reload" style="margin-top:0">🔄 تازه کړه</button>
+  <div id="list"></div>
+</div>
+
+<div id="status"></div>
+
+<script>
+const CATS = [
+  ['computer','کمپیوټر'],['mobile','موبایل'],['internet','انټرنټ'],
+  ['ai','مصنوعي ذکاوت'],['science','ساینس'],['physics','فزیک'],
+  ['chemistry','کیمیا'],['biology','بیولوژي'],['math','ریاضي'],
+  ['programming','پروګرامینګ'],['webdesign','ویب ډیزاین'],
+  ['graphic','ګرافیک ډیزاین'],['security','سایبر خوندیتوب'],
+  ['english','انګلیسي ژبه'],['office','آفیس'],['typing','ټایپینګ'],
+  ['video','ویډیو جوړول'],['social','ټولنیزې شبکې'],
+  ['online','آنلاین کار'],['electronics','الکترونیک']
+];
+
+const $ = (id) => document.getElementById(id);
+const BRANCH = 'main';
+
+// ───── کوچني مرستندویان ─────
+function show(msg, kind) {
+  const s = $('status');
+  s.textContent = msg;
+  s.className = kind || '';
+  s.style.display = 'block';
+}
+function cfg() {
+  return {
+    token: $('token').value.trim(),
+    owner: $('owner').value.trim(),
+    repo: $('repo').value.trim(),
+  };
+}
+function api(path) {
+  const c = cfg();
+  return `https://api.github.com/repos/${c.owner}/${c.repo}/contents/${path}`;
+}
+function headers() {
+  return {
+    'Authorization': 'Bearer ' + cfg().token,
+    'Accept': 'application/vnd.github+json',
+  };
+}
+function b64FromText(text) {
+  const bytes = new TextEncoder().encode(text);
+  let bin = '';
+  bytes.forEach((b) => (bin += String.fromCharCode(b)));
+  return btoa(bin);
+}
+function textFromB64(b64) {
+  const bin = atob(b64.replace(/\n/g, ''));
+  const bytes = Uint8Array.from(bin, (c) => c.charCodeAt(0));
+  return new TextDecoder().decode(bytes);
+}
+function rawUrl(path) {
+  const c = cfg();
+  return `https://raw.githubusercontent.com/${c.owner}/${c.repo}/${BRANCH}/${path}`;
+}
+
+// ───── د JSON فایل لوستل او لیکل ─────
+async function readJson(catId) {
+  const r = await fetch(api(catId + '.json') + '?ref=' + BRANCH + '&t=' + Date.now(), {
+    headers: headers(), cache: 'no-store',
+  });
+  if (r.status === 404) return { items: [], sha: null };
+  if (!r.ok) throw new Error('لوستل ناکام شو (' + r.status + ')');
+  const j = await r.json();
+  return { items: JSON.parse(textFromB64(j.content)), sha: j.sha };
+}
+async function writeJson(catId, items, sha, message) {
+  const body = {
+    message: message,
+    content: b64FromText(JSON.stringify(items, null, 2)),
+    branch: BRANCH,
+  };
+  if (sha) body.sha = sha;
+  const r = await fetch(api(catId + '.json'), {
+    method: 'PUT', headers: headers(), body: JSON.stringify(body),
+  });
+  if (!r.ok) {
+    const t = await r.text();
+    throw new Error('لیکل ناکام شو (' + r.status + '): ' + t.slice(0, 120));
+  }
+}
+
+// ───── عکس کوچنی کول او اپلوډ ─────
+function resizeImage(file, maxSide, quality) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    const url = URL.createObjectURL(file);
+    img.onload = () => {
+      let w = img.width, h = img.height;
+      const scale = Math.min(1, maxSide / Math.max(w, h));
+      w = Math.round(w * scale); h = Math.round(h * scale);
+      const cv = document.createElement('canvas');
+      cv.width = w; cv.height = h;
+      cv.getContext('2d').drawImage(img, 0, 0, w, h);
+      cv.toBlob((blob) => {
+        URL.revokeObjectURL(url);
+        blob ? resolve(blob) : reject(new Error('عکس نه شو بدلیدلی'));
+      }, 'image/jpeg', quality);
+    };
+    img.onerror = () => reject(new Error('عکس نه شو لوستل کیدی'));
+    img.src = url;
+  });
+}
+function blobToB64(blob) {
+  return new Promise((resolve, reject) => {
+    const fr = new FileReader();
+    fr.onload = () => resolve(fr.result.split(',')[1]);
+    fr.onerror = () => reject(new Error('فایل نه شو لوستل کیدی'));
+    fr.readAsDataURL(blob);
+  });
+}
+async function uploadImage(file) {
+  const blob = await resizeImage(file, 1280, 0.82);
+  const b64 = await blobToB64(blob);
+  const path = 'images/' + Date.now() + '.jpg';
+  const r = await fetch(api(path), {
+    method: 'PUT', headers: headers(),
+    body: JSON.stringify({ message: 'add image', content: b64, branch: BRANCH }),
+  });
+  if (!r.ok) {
+    const t = await r.text();
+    throw new Error('عکس اپلوډ نه شو (' + r.status + '): ' + t.slice(0, 120));
+  }
+  return rawUrl(path);
+}
+
+// ───── UI ─────
+function updateType() {
+  const t = $('type').value;
+  $('imgBox').classList.toggle('hide', t !== 'image');
+  $('urlBox').classList.toggle('hide', t !== 'video');
+  $('bodyBox').classList.toggle('hide', t === 'video');
+  $('bodyLabel').textContent = t === 'image' ? 'د عکس تشریح (اختیاري)' : 'متن';
+}
+
+async function loadList() {
+  const box = $('list');
+  box.innerHTML = '';
+  if (!cfg().token) { box.textContent = 'لومړی Token ولیکئ.'; return; }
+  try {
+    const { items } = await readJson($('cat').value);
+    if (!items.length) { box.textContent = 'تر اوسه هیڅ توکی نشته.'; return; }
+    items.forEach((it) => {
+      const row = document.createElement('div');
+      row.className = 'row';
+      const label = document.createElement('span');
+      label.textContent = it.title;
+      const tag = document.createElement('div');
+      tag.className = 'tag';
+      tag.textContent = it.type;
+      label.appendChild(tag);
+      const del = document.createElement('button');
+      del.className = 'small';
+      del.textContent = 'ړنګ کړه';
+      del.onclick = () => removeItem(it.id, it.title);
+      row.appendChild(label);
+      row.appendChild(del);
+      box.appendChild(row);
+    });
+  } catch (e) {
+    box.textContent = e.message;
+  }
+}
+
+async function removeItem(id, title) {
+  if (!confirm('"' + title + '" ړنګ شي؟')) return;
+  try {
+    show('ړنګیږي...');
+    const cat = $('cat').value;
+    const { items, sha } = await readJson(cat);
+    const next = items.filter((x) => String(x.id) !== String(id));
+    await writeJson(cat, next, sha, 'delete item');
+    show('✅ ړنګ شو', 'ok');
+    loadList();
+  } catch (e) {
+    show('❌ ' + e.message, 'err');
+  }
+}
+
+async function publish() {
+  const c = cfg();
+  if (!c.token) return show('❌ لومړی Token ولیکئ', 'err');
+  const type = $('type').value;
+  const title = $('title').value.trim();
+  const body = $('body').value.trim();
+  if (!title) return show('❌ سرلیک ولیکئ', 'err');
+
+  const btn = $('publish');
+  btn.disabled = true;
+  try {
+    let url = '';
+    if (type === 'image') {
+      const f = $('file').files[0];
+      if (!f) throw new Error('عکس وټاکئ');
+      show('عکس اپلوډیږي...');
+      url = await uploadImage(f);
+    } else if (type === 'video') {
+      url = $('url').value.trim();
+      if (!url) throw new Error('د ویډیو لینک ولیکئ');
+    } else if (!body) {
+      throw new Error('متن ولیکئ');
+    }
+
+    show('منځپانګه خوندي کیږي...');
+    const cat = $('cat').value;
+    const { items, sha } = await readJson(cat);
+    const nextId = items.reduce((m, x) => Math.max(m, parseInt(x.id) || 0), 0) + 1;
+    const item = { id: String(nextId), title: title, type: type, url: url };
+    if (body && type !== 'video') item.body = body;
+    items.unshift(item); // نوی توکی لومړی
+    await writeJson(cat, items, sha, 'add ' + type + ': ' + title);
+
+    show('✅ اپلوډ شو! په اپ کې تازه کړئ (څو دقیقې وروسته).', 'ok');
+    $('title').value = ''; $('body').value = ''; $('url').value = '';
+    $('file').value = ''; $('preview').classList.add('hide');
+    loadList();
+  } catch (e) {
+    show('❌ ' + e.message, 'err');
+  } finally {
+    btn.disabled = false;
+  }
+}
+
+// ───── پیل ─────
+CATS.forEach(([id, name]) => {
+  const o = document.createElement('option');
+  o.value = id; o.textContent = name + ' (' + id + ')';
+  $('cat').appendChild(o);
+});
+try {
+  $('token').value = localStorage.getItem('pt_token') || '';
+  $('owner').value = localStorage.getItem('pt_owner') || $('owner').value;
+  $('repo').value = localStorage.getItem('pt_repo') || $('repo').value;
+} catch (e) {}
+
+$('saveSettings').onclick = () => {
+  try {
+    localStorage.setItem('pt_token', $('token').value.trim());
+    localStorage.setItem('pt_owner', $('owner').value.trim());
+    localStorage.setItem('pt_repo', $('repo').value.trim());
+    show('✅ خوندي شو', 'ok');
+    loadList();
+  } catch (e) {
+    show('❌ خوندي نه شو', 'err');
+  }
+};
+$('type').onchange = updateType;
+$('cat').onchange = loadList;
+$('reload').onclick = loadList;
+$('publish').onclick = publish;
+$('file').onchange = () => {
+  const f = $('file').files[0];
+  const p = $('preview');
+  if (f) { p.src = URL.createObjectURL(f); p.classList.remove('hide'); }
+  else p.classList.add('hide');
+};
+updateType();
+loadList();
+</script>
+</body>
+</html>
