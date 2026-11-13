@@ -1,6 +1,6 @@
 {
-  "version": 2,
-  "updatedAt": "2026-11-13T07:15:48.242Z",
+  "version": 3,
+  "updatedAt": "2026-11-13T07:20:17.637Z",
   "files": [
     "data/categories.json",
     "data/lessons.json",
