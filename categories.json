@@ -1,0 +1,123 @@
+[
+  {
+    "id": "computer",
+    "title": "Computer",
+    "emoji": "💻",
+    "color": "#2563eb",
+    "image": "https://raw.githubusercontent.com/rokhanirfan95-sudo/pashto-tech-content/main/images/cat-1794558427205.jpg"
+  },
+  {
+    "id": "mobile",
+    "title": "Mobile",
+    "emoji": "📱",
+    "color": "#7C3AED"
+  },
+  {
+    "id": "internet",
+    "title": "Internet",
+    "emoji": "🌐",
+    "color": "#0EA5E9"
+  },
+  {
+    "id": "ai",
+    "title": "Artificial Intelligence",
+    "emoji": "🤖",
+    "color": "#DB2777"
+  },
+  {
+    "id": "science",
+    "title": "Science",
+    "emoji": "🔬",
+    "color": "#10B981"
+  },
+  {
+    "id": "physics",
+    "title": "Physics",
+    "emoji": "⚛️",
+    "color": "#6366F1"
+  },
+  {
+    "id": "chemistry",
+    "title": "Chemistry",
+    "emoji": "🧪",
+    "color": "#16A34A"
+  },
+  {
+    "id": "biology",
+    "title": "Biology",
+    "emoji": "🧬",
+    "color": "#059669"
+  },
+  {
+    "id": "math",
+    "title": "Mathematics",
+    "emoji": "➗",
+    "color": "#F59E0B"
+  },
+  {
+    "id": "programming",
+    "title": "Programming",
+    "emoji": "👨‍💻",
+    "color": "#4F46E5"
+  },
+  {
+    "id": "webdesign",
+    "title": "Web Design",
+    "emoji": "🎨",
+    "color": "#EC4899"
+  },
+  {
+    "id": "graphic",
+    "title": "Graphic Design",
+    "emoji": "🖌️",
+    "color": "#F97316"
+  },
+  {
+    "id": "security",
+    "title": "Cyber Security",
+    "emoji": "🔒",
+    "color": "#0F766E"
+  },
+  {
+    "id": "english",
+    "title": "English",
+    "emoji": "🔤",
+    "color": "#2563EB"
+  },
+  {
+    "id": "office",
+    "title": "Office Skills",
+    "emoji": "📊",
+    "color": "#0284C7"
+  },
+  {
+    "id": "typing",
+    "title": "Typing",
+    "emoji": "⌨️",
+    "color": "#475569"
+  },
+  {
+    "id": "video",
+    "title": "Video Editing",
+    "emoji": "🎬",
+    "color": "#DC2626"
+  },
+  {
+    "id": "social",
+    "title": "Social Media",
+    "emoji": "💬",
+    "color": "#3B82F6"
+  },
+  {
+    "id": "online",
+    "title": "Online Earning",
+    "emoji": "💼",
+    "color": "#CA8A04"
+  },
+  {
+    "id": "electronics",
+    "title": "Electronics",
+    "emoji": "🔌",
+    "color": "#EA580C"
+  }
+]
