@@ -114,7 +114,8 @@
     "id": "video",
     "title": "Video Editing",
     "emoji": "🎬",
-    "color": "#DC2626"
+    "color": "#dc2626",
+    "image": "https://raw.githubusercontent.com/rokhanirfan95-sudo/pashto-tech-content/main/images/cat-1794758890606.jpg"
   },
   {
     "id": "social",
