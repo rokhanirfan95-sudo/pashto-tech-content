@@ -79,7 +79,8 @@
     "id": "graphic",
     "title": "Graphic Design",
     "emoji": "🖌️",
-    "color": "#F97316"
+    "color": "#f97316",
+    "image": "https://raw.githubusercontent.com/rokhanirfan95-sudo/pashto-tech-content/main/images/cat-1794758749718.jpg"
   },
   {
     "id": "security",
