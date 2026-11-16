@@ -137,5 +137,14 @@
     "emoji": "🔌",
     "color": "#ea580c",
     "image": "https://raw.githubusercontent.com/rokhanirfan95-sudo/pashto-tech-content/main/images/cat-1794758985480.jpg"
+  },
+  {
+    "id": "akhtar",
+    "title": "akhtar",
+    "titlePs": "اختر",
+    "emoji": "📘",
+    "color": "#2563eb",
+    "image": "https://raw.githubusercontent.com/rokhanirfan95-sudo/pashto-tech-content/main/images/cat-1794796741285-108.jpg",
+    "new": true
   }
 ]
