@@ -53,5 +53,31 @@
         "text": "Pashto Tech – زده‌کړه، مهارت او روښانه راتلونکی!"
       }
     ]
+  },
+  {
+    "id": "2",
+    "title": "کمپیوټر څه شی دی؟",
+    "image": "https://raw.githubusercontent.com/rokhanirfan95-sudo/pashto-tech-content/main/images/computer-1794846947917-343.jpg",
+    "body": "کمپیوټر یوه برېښنايي وسیله ده چې معلومات ترلاسه کوي، پروسس کوي او پایلې وړاندې کوي. موږ له کمپیوټر څخه د زده کړې، لیکلو، حساب او نورو کارونو لپاره ګټه اخلو.",
+    "images": [
+      "https://raw.githubusercontent.com/rokhanirfan95-sudo/pashto-tech-content/main/images/computer-1794846913544-302.jpg"
+    ],
+    "video": "https://youtu.be/dhb-r20nfFY?si=5XLKQTVA-SqLuNrJ",
+    "blocks": [
+      {
+        "type": "text",
+        "text": "کمپیوټر یوه برېښنايي وسیله ده چې معلومات ترلاسه کوي، پروسس کوي او پایلې وړاندې کوي. موږ له کمپیوټر څخه د زده کړې، لیکلو، حساب او نورو کارونو لپاره ګټه اخلو."
+      },
+      {
+        "type": "image",
+        "url": "https://raw.githubusercontent.com/rokhanirfan95-sudo/pashto-tech-content/main/images/computer-1794846913544-302.jpg",
+        "size": "medium"
+      },
+      {
+        "type": "video",
+        "url": "https://youtu.be/dhb-r20nfFY?si=5XLKQTVA-SqLuNrJ",
+        "title": "Ai"
+      }
+    ]
   }
 ]
