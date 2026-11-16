@@ -53,32 +53,5 @@
         "text": "Pashto Tech – زده‌کړه، مهارت او روښانه راتلونکی!"
       }
     ]
-  },
-  {
-    "id": "2",
-    "title": "افغانستان",
-    "image": "https://raw.githubusercontent.com/rokhanirfan95-sudo/pashto-tech-content/main/images/computer-1794843913193-738.jpg",
-    "body": "سلام پښتونخوا اورېدل شوي دي يواځې ته ټول کوډ وليکه",
-    "images": [
-      "https://raw.githubusercontent.com/rokhanirfan95-sudo/pashto-tech-content/main/images/computer-1794844019032-26.jpg"
-    ],
-    "blocks": [
-      {
-        "type": "text",
-        "text": "سلام پښتونخوا اورېدل شوي دي يواځې ته ټول کوډ وليکه",
-        "size": "l",
-        "bold": true,
-        "align": "end"
-      },
-      {
-        "type": "divider"
-      },
-      {
-        "type": "gallery",
-        "images": [
-          "https://raw.githubusercontent.com/rokhanirfan95-sudo/pashto-tech-content/main/images/computer-1794844019032-26.jpg"
-        ]
-      }
-    ]
   }
 ]
