@@ -31,5 +31,16 @@
         "url": "https://www.youtube.com/watch?v=a2rcPgyv3W8"
       }
     ]
+  },
+  {
+    "id": "4",
+    "title": "اتوم پېژندنه او جوړښت (Introduction to Atom)",
+    "video": "https://www.youtube.com/watch?v=Jb0MwBa8lxU",
+    "blocks": [
+      {
+        "type": "video",
+        "url": "https://www.youtube.com/watch?v=Jb0MwBa8lxU"
+      }
+    ]
   }
 ]
