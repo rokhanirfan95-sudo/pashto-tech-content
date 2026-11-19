@@ -53,5 +53,16 @@
         "url": "https://www.youtube.com/watch?v=pfwFy0E0HV8"
       }
     ]
+  },
+  {
+    "id": "6",
+    "title": "د AI په وسیله د عکسونو او ویډیوګانو جوړول",
+    "video": "https://youtu.be/6jih07mDses",
+    "blocks": [
+      {
+        "type": "video",
+        "url": "https://youtu.be/6jih07mDses"
+      }
+    ]
   }
 ]
