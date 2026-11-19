@@ -42,5 +42,16 @@
         "url": "https://www.youtube.com/watch?v=qjJc2SS-HzI"
       }
     ]
+  },
+  {
+    "id": "5",
+    "title": "په CapCut کې د ویډیو ترنزیشن او افیکټونو جوړول (Transitions & Effects)",
+    "video": "https://www.youtube.com/watch?v=GYZz-TkY0bU",
+    "blocks": [
+      {
+        "type": "video",
+        "url": "https://www.youtube.com/watch?v=GYZz-TkY0bU"
+      }
+    ]
   }
 ]
