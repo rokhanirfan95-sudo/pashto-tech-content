@@ -42,5 +42,16 @@
         "url": "https://youtu.be/pfwFy0E0HV8"
       }
     ]
+  },
+  {
+    "id": "5",
+    "title": "Machine Learning او Prompt Engineering پېژندنه",
+    "video": "https://www.youtube.com/watch?v=pfwFy0E0HV8",
+    "blocks": [
+      {
+        "type": "video",
+        "url": "https://www.youtube.com/watch?v=pfwFy0E0HV8"
+      }
+    ]
   }
 ]
