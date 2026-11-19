@@ -31,5 +31,16 @@
         "url": "https://www.youtube.com/watch?v=k9Ba_RKJ7aI"
       }
     ]
+  },
+  {
+    "id": "4",
+    "title": "د AI Tools پېژندنه او د مناسبو وسایلو انتخاب",
+    "video": "https://youtu.be/pfwFy0E0HV8",
+    "blocks": [
+      {
+        "type": "video",
+        "url": "https://youtu.be/pfwFy0E0HV8"
+      }
+    ]
   }
 ]
