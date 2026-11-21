@@ -311,10 +311,15 @@
     "id": "15",
     "title": "د هارډ ډیسک پېژندنه",
     "body": "# د هارډ ډیسک پېژندنه",
+    "video": "https://ed.ted.com/lessons/how-do-hard-drives-work-kanawat-senanan",
     "blocks": [
       {
         "type": "h1",
         "text": "د هارډ ډیسک پېژندنه"
+      },
+      {
+        "type": "video",
+        "url": "https://ed.ted.com/lessons/how-do-hard-drives-work-kanawat-senanan"
       }
     ]
   },
