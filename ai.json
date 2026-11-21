@@ -75,5 +75,16 @@
         "url": "https://www.youtube.com/watch?v=_o8UC-01sbM"
       }
     ]
+  },
+  {
+    "id": "8",
+    "title": "📚  له مصنوعي ځیرکتیا څخه د سمو معلوماتو ترلاسه کول",
+    "video": "https://www.youtube.com/watch?v=P7KpkWbKPJQ",
+    "blocks": [
+      {
+        "type": "video",
+        "url": "https://www.youtube.com/watch?v=P7KpkWbKPJQ"
+      }
+    ]
   }
 ]
