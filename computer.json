@@ -295,10 +295,15 @@
     "id": "14",
     "title": "د زېرمه کولو وسایل",
     "body": "# د زېرمه کولو وسایل",
+    "video": "https://www.youtube.com/watch?v=yKbS1prjTFo",
     "blocks": [
       {
         "type": "h1",
         "text": "د زېرمه کولو وسایل"
+      },
+      {
+        "type": "video",
+        "url": "https://www.youtube.com/watch?v=yKbS1prjTFo"
       }
     ]
   },
