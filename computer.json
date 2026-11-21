@@ -231,10 +231,15 @@
     "id": "10",
     "title": "د کمپیوټر د معلوماتو مفهوم",
     "body": "# د کمپیوټر د معلوماتو مفهوم",
+    "video": "https://www.youtube.com/watch?v=yKbS1prjTFo",
     "blocks": [
       {
         "type": "h1",
         "text": "د کمپیوټر د معلوماتو مفهوم"
+      },
+      {
+        "type": "video",
+        "url": "https://www.youtube.com/watch?v=yKbS1prjTFo"
       }
     ]
   },
