@@ -263,10 +263,15 @@
     "id": "12",
     "title": "د موربورډ پېژندنه",
     "body": "# د موربورډ پېژندنه",
+    "video": "https://www.youtube.com/watch?v=jfKOl1W8Ml4",
     "blocks": [
       {
         "type": "h1",
         "text": "د موربورډ پېژندنه"
+      },
+      {
+        "type": "video",
+        "url": "https://www.youtube.com/watch?v=jfKOl1W8Ml4"
       }
     ]
   },
