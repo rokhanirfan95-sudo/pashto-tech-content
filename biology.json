@@ -20,5 +20,16 @@
         "url": "https://www.youtube.com/watch?v=2m9blnLA2Gw"
       }
     ]
+  },
+  {
+    "id": "3",
+    "title": "د حجرې پېژندنه",
+    "video": "https://www.youtube.com/watch?v=vwAJ8ByQH2U",
+    "blocks": [
+      {
+        "type": "video",
+        "url": "https://www.youtube.com/watch?v=vwAJ8ByQH2U"
+      }
+    ]
   }
 ]
