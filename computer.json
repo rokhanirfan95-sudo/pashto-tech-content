@@ -247,10 +247,15 @@
     "id": "11",
     "title": "د مرکزي پروسس کوونکي پېژندنه",
     "body": "# د مرکزي پروسس کوونکي پېژندنه",
+    "video": "https://www.youtube.com/watch?v=z8MVbH3s0Pc",
     "blocks": [
       {
         "type": "h1",
         "text": "د مرکزي پروسس کوونکي پېژندنه"
+      },
+      {
+        "type": "video",
+        "url": "https://www.youtube.com/watch?v=z8MVbH3s0Pc"
       }
     ]
   },
