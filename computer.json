@@ -279,10 +279,15 @@
     "id": "13",
     "title": "د کمپیوټر حافظه (RAM)",
     "body": "# د کمپیوټر حافظه (RAM)",
+    "video": "https://www.youtube.com/watch?v=yKbS1prjTFo",
     "blocks": [
       {
         "type": "h1",
         "text": "د کمپیوټر حافظه (RAM)"
+      },
+      {
+        "type": "video",
+        "url": "https://www.youtube.com/watch?v=yKbS1prjTFo"
       }
     ]
   },
